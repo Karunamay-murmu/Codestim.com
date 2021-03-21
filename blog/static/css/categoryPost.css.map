@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,WAAW,CAAC;EACR,OAAO,EAAE,UAAU;EACnB,UAAU,EAAE,IAAI;CAWnB;;AAbD,AAGI,WAHO,CAGP,CAAC,CAAC;EACE,SAAS,EAAE,OAAO;EAClB,KAAK,ECQN,OAAO;EDPN,WAAW,EC0BZ,aAAa,EAAE,UAAU;EDzBxB,WAAW,ECmBZ,GAAG;CDlBL;;AARL,AASI,WATO,CASP,WAAW,CAAC;EACR,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAC1B",
+    "sources": [
+        "categoryPost.scss",
+        "../../../global/css/variable.scss"
+    ],
+    "names": [],
+    "file": "categoryPost.css"
+}

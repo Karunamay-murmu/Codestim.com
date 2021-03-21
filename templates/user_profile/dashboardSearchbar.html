@@ -1,0 +1,7 @@
+<form action="{% url 'dashboard:search' user=user id=user.userId %}" class="search-bar flex flex-row" method="GET">
+    <input type="search" name="model" value='{{model}}' hidden>
+    <input class="search-bar--input" required type="search" name="query" placeholder="Search anything here..."
+        id="search">
+    <button class="search-bar__btn" aria-label="search" type="submit">Search
+    </button>
+</form>

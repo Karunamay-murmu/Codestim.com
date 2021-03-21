@@ -1,0 +1,359 @@
+.post-header-container {
+  padding: 10rem 2rem;
+}
+
+.post-header-container .article-title {
+  font-family: "Catamaran", sans-serif;
+  font-size: 2.5rem;
+  color: #41444b;
+  line-height: 1.1;
+  max-width: 700px;
+}
+
+.title-background {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.liked {
+  fill: #0f715d !important;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.share-icon {
+  width: 2rem;
+  fill: rgba(82, 87, 93, 0.8);
+  margin: 0 0.25rem;
+  -webkit-transition: 180ms;
+  transition: 180ms;
+}
+
+.share-icon:hover {
+  fill: #52575d;
+}
+
+.lazyload {
+  opacity: 1;
+  -webkit-transition: 1000ms;
+  transition: 1000ms;
+}
+
+.post {
+  max-width: 788px;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.post__footer {
+  padding: 2rem 0;
+  border-bottom: 1px solid #ebecf1;
+  border-top: 1px solid #ebecf1;
+}
+
+.post__footer--tag {
+  padding: 0.3rem 0.5rem;
+  background-color: #ebecf1;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  margin-right: 0.5rem;
+}
+
+.post__footer__options {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #0f715d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.post__footer__like--button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-top: 0.3rem;
+}
+
+.post__footer__like--icon {
+  margin-left: 0.8rem;
+  width: 1.8rem;
+  fill: #ebecf1;
+  cursor: pointer;
+}
+
+.post__footer__like--count {
+  margin-left: 0.5rem;
+}
+
+.post__footer__share--links {
+  margin-top: 0.5rem;
+}
+
+.post__meta {
+  margin: 1rem 0 0 0;
+}
+
+.post__meta--category, .post__meta--author, .post__meta--publish-dt {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #52575d;
+  margin-right: 1rem;
+}
+
+.post__meta--category .name, .post__meta--author .name, .post__meta--publish-dt .name {
+  color: #7579e7;
+  font-weight: 400;
+}
+
+.post__featured-image {
+  width: 100%;
+}
+
+.post__featured-image--image {
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.post__content {
+  padding: 1rem 0 2rem;
+}
+
+.post__content--body * {
+  width: 100%;
+}
+
+.post__content--body div {
+  width: 100%;
+}
+
+.post__content--body iframe {
+  max-width: 100%;
+}
+
+.post__content--body pre {
+  border-radius: .3rem;
+}
+
+.post__content--body pre * {
+  font-family: "consolas";
+}
+
+.post__content--body h1,
+.post__content--body h2,
+.post__content--body h3,
+.post__content--body h4,
+.post__content--body h5,
+.post__content--body h6 {
+  color: #52575d !important;
+  font-family: "Catamaran", sans-serif;
+}
+
+.post__content--body p,
+.post__content--body div,
+.post__content--body table,
+.post__content--body ul,
+.post__content--body ol,
+.post__content--body dl,
+.post__content--body h1,
+.post__content--body h2,
+.post__content--body h3,
+.post__content--body h4,
+.post__content--body h5,
+.post__content--body h6 {
+  margin: 1rem 0;
+}
+
+.post__content--body ol,
+.post__content--body ul,
+.post__content--body dl {
+  padding: 0 4rem;
+}
+
+.post__content--body p,
+.post__content--body li,
+.post__content--body strong,
+.post__content--body em,
+.post__content--body dt,
+.post__content--body dd {
+  font-size: 1.1rem;
+  color: #41444b;
+}
+
+.post__content--body p > img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.3rem;
+}
+
+.post__content--body a,
+.post__content--body a > * {
+  text-decoration: none;
+  color: #ff7171;
+  font-weight: 700;
+}
+
+.post__content--body table {
+  border-collapse: collapse;
+  padding: 0 4rem;
+}
+
+.post__content--body table td,
+.post__content--body table th {
+  border: 1px solid #ccc;
+  padding: 0.4rem;
+}
+
+.post__content--body table {
+  border-collapse: collapse;
+}
+
+.comment-section {
+  max-width: 780px;
+  padding: 0.5rem;
+}
+
+.comment-section .comment-list {
+  -webkit-box-shadow: 0 0 0px 1px rgba(82, 87, 93, 0.5);
+          box-shadow: 0 0 0px 1px rgba(82, 87, 93, 0.5);
+  border-radius: 0.3rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.comment-section .comment-list--count {
+  font-family: "Catamaran", sans-serif;
+  color: #41444b;
+}
+
+.comment-section .comment {
+  border-left: 4px solid #0f715d;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.comment-section .comment--profile {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comment-section .comment--profile-pic {
+  width: 2rem;
+  fill: #0f715d;
+  margin-right: 0.5rem;
+}
+
+.comment-section .comment--name, .comment-section .comment--body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.comment-section .comment--name {
+  font-weight: 600;
+  color: #0f715d;
+}
+
+.comment-section .comment--alert-notification {
+  margin-top: 1rem;
+  color: #52575d;
+}
+
+.comment-section .comment-form {
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+}
+
+.comment-section .comment-form .login-message {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1rem;
+  padding: 1rem;
+  background-color: #ebecf1;
+  border-radius: 0.3rem;
+}
+
+.comment-section .comment-form--title {
+  font-family: "Catamaran", sans-serif;
+  color: #52575d;
+  margin-bottom: 0.5rem;
+}
+
+.comment-section .comment-form--body label {
+  font-weight: 500;
+  margin: 1rem 0;
+  color: #52575d;
+}
+
+.comment-section .comment-form--body textarea {
+  border: none;
+  -webkit-box-shadow: 0 0 0px 1px rgba(82, 87, 93, 0.5);
+          box-shadow: 0 0 0px 1px rgba(82, 87, 93, 0.5);
+  outline: none;
+  resize: vertical;
+  border-radius: 0.2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.comment-section .comment-form--reply {
+  background-color: #7579e7;
+  border-radius: 0.2rem;
+  margin: 1rem 0 0 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #ebecf1;
+  cursor: pointer;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding: 0.5rem;
+  border: none;
+}
+
+.related-posts {
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.related-posts--heading {
+  margin: 1rem 0;
+  font-family: "Catamaran", sans-serif;
+  color: #41444b;
+}
+
+@media only screen and (max-width: 650px) {
+  .post__meta {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post__footer__options {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 978px) {
+  .post-header-container {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .post-header-container .article-title {
+    font-size: 2rem;
+  }
+  .post-header-container .post__meta {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+/*# sourceMappingURL=postPage.css.map */

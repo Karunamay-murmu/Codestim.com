@@ -1,0 +1,16 @@
+@import "../../../global/css/variable.scss";
+
+.pagination {
+    padding: 1rem 0 0 0;
+    margin-top: auto;
+    * {
+        font-size: 0.85rem;
+        color: $link;
+        font-family: $text;
+        font-weight: $bold;
+    }
+    .step-links {
+        display: flex;
+        justify-content: center;
+    }
+}

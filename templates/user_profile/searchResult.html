@@ -1,0 +1,109 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Search results</title>
+<link rel="stylesheet" href="{% static 'css/itemList.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<script type="module" defer src="{% static 'js/modal.js' %}"></script>
+<style>
+    .total-search {
+        font-family: "Catamaran", sans-serif;
+        color: #41444b;
+        margin-bottom: 1rem;
+    }
+</style>
+{% if model == 'comment' %}
+<style>
+    .card__text--title {
+        font-family: "Dosis", sans-serif;
+    }
+
+    .card__btn--edit {
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+{% endif %}
+{% if result_found is False %}
+<link rel="stylesheet" href="{% static 'css/noSearchResult.css' %}">
+{% endif %}
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+<div class="search-result">
+    <h1 class="total-search">{{result_length}} matching search result{{result_length|pluralize}} found</h1>
+    {% if results %}
+    {% if model == 'post' or model == 'draft' %}
+    {% for obj in results %}
+    <div class="card">
+        <div class="card__text">
+            <h3 class="card__text--title">{{obj.title}}</h3>
+            <p class="card__text--meta">Category: <span>{{obj.category}}</span> </p>
+            <p class="card__text--meta">Tags:
+                {% if obj.tags %}
+                <span>{{obj.tags}}</span>
+                {% else %}
+                <span></span>
+                {% endif %}
+            </p>
+        </div>
+        <div class="card__btn">
+            <a class="link card__btn--view" href="">View</a>
+            <a class="link card__btn--edit" href="{% url 'blog:edit-post' slug=obj.slug id=obj.postId %}">Edit</a>
+            <button class="card__btn--delete delete" type="text" name="delete" data-extra="{{obj.title}}"
+                value="{{obj.postId}}">Delete</button>
+        </div>
+    </div>
+    <div class="modal-container" id="modal-container">
+        {% include 'modalForm.html' with objId=obj.postId user=user model=model %}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if model == 'comment' %}
+    {% for obj in results %}
+    <div class="card">
+        <div class="card__text">
+            <h3 class="card__text--title">
+                {{obj.comment}}</h3>
+            <p class="card__text--meta">Comment on: <span>{{obj.create_date}}</span></p>
+            <p class="card__text--meta">By: <span>{{request.user}}</span></p>
+            <p class="card__text--meta">Post: <span>{{obj.post.title}}</span></p>
+        </div>
+        <form action="{% url 'dashboard:search' user=user id=user.userId %}" method="POST" class="card__btn">
+            {% csrf_token %}
+            <input type="hidden" name="id" value={{obj.commentId}}>
+            <input type="hidden" name="model" value={{model}}>
+            <input type="hidden" name="next" value={{request.get_full_path}}>
+            <button type="submit" name="action" value="approve" class="card__btn--edit">
+                {% if obj.isApprove %}
+                Disapprove
+                {% else %}
+                Approve
+                {% endif %}
+            </button>
+            <button type="submit" name="action" value="delete" class="card__btn--delete">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% else %}
+    <div class="no-result-wrapper">
+        <p class="no-result--text">Sorry, we couldn't find any content for "<span
+                class="no-result--query">{{query}}</span>".
+            <br>
+            Please try with different keyword.
+        </p>
+        {% include 'user_profile/dashboardSearchbar.html' with user=user model=model %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

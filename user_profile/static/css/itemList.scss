@@ -1,0 +1,78 @@
+@import "../../../global/css/variable.scss";
+
+.card {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid $primary;
+    margin-bottom: 1rem;
+
+    &__text {
+        &--title {
+            color: $title;
+            letter-spacing: 0.5px;
+            font-family: "Dosis", sans-serif;
+            font-weight: $bold;
+            padding-bottom: 0.5rem;
+        }
+        &--meta {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: $info;
+            span {
+                font-weight: $normal;
+            }
+        }
+    }
+    &__btn {
+        padding-top: 0.5rem;
+        &--edit,
+        &--view {
+            margin-right: 0.5rem;
+            font-weight: $semi-bold;
+            text-decoration: underline;
+        }
+        &--edit {
+            color: $info;
+        }
+        &--view {
+            color: $info;
+        }
+        &--delete {
+            background: transparent;
+            color: $delete;
+            border: none;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+            font-weight: $semi-bold;
+            text-decoration: underline;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.no-content {
+    height: 100%;
+    border-radius: 0.2rem;
+    background-color: $white-bg;
+    position: relative;
+    .info {
+        font-size: 0.9rem;
+        font-family: $text;
+        font-weight: $bold;
+        color: $secondary;
+    }
+    .wrapper {
+        max-width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .write-icon {
+        max-width: 3rem;
+        margin: 0.5rem 0 0 0;
+        fill: $secondary;
+    }
+}

@@ -1,0 +1,59 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Comments</title>
+<link rel="stylesheet" href="{% static 'css/itemList.css' %}">
+<style>
+    .card__text--title {
+        font-family: "Dosis", sans-serif;
+    }
+
+    .card__btn--edit {
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+<h1 class="page-title">Comments</h1>
+{% if comments %}
+{% for comment in comments %}
+<div class="card">
+    <div class="card__text">
+        <h3 class="card__text--title">
+            {{comment.comment}}</h3>
+        <p class="card__text--meta">Comment on: <span>{{comment.create_date}}</span></p>
+        <p class="card__text--meta">By: <span>{{request.user}}</span></p>
+        <p class="card__text--meta">Post: <span>{{comment.post.title}}</span></p>
+    </div>
+    <form action="" method="GET" class="card__btn">
+        <input type="hidden" name="id" value={{comment.commentId}}>
+        <button type="submit" name="action" value="approve" class="card__btn--edit">
+            {% if comment.isApprove %}
+            Disapprove
+            {% else %}
+            Approve
+            {% endif %}
+        </button>
+        <button type="submit" name="action" value="delete" class="card__btn--delete">Delete</button>
+    </form>
+</div>
+{% endfor %}
+{% else %}
+<div class="no-content">
+    <div class="wrapper">
+        <p class="info">No Comments</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

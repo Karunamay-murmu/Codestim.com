@@ -1,0 +1,66 @@
+.post-card {
+  width: 240px;
+  margin: 0 1rem 1rem 0;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 1px 1px 5px rgba(82, 87, 93, 0.5);
+          box-shadow: 1px 1px 5px rgba(82, 87, 93, 0.5);
+}
+
+.post-card--thumbnail {
+  width: 100%;
+  height: 128px;
+  background-color: #ebecf1;
+  position: relative;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.post-card--svg {
+  width: 1rem;
+  fill: #52575d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.post-card--image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.post-card__details {
+  padding: 1rem 0.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post-card--title {
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  font-family: "Catamaran", sans-serif;
+  color: #41444b;
+}
+
+.post-card__btn {
+  margin: 2rem 0 0.5rem;
+}
+
+.post-card__btn--read-more {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: #7579e7;
+  border-radius: 0.2rem;
+  color: #ebecf1;
+  padding: 0.5rem;
+}
+/*# sourceMappingURL=postCard.css.map */

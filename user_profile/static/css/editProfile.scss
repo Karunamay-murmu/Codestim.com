@@ -1,0 +1,68 @@
+@import "../../../global/css/variable.scss";
+
+.profile-edit {
+    padding: 1rem;
+
+    .form {
+        max-width: 550px;
+
+        &--name {
+            font-family: $large-text;
+            color: $secondary;
+        }
+
+        &--body {
+            margin: 1rem 0;
+
+            .input-box {
+                margin: 1rem 0;
+                color: $text-dark;
+
+                &--label {
+                    margin: 0.5rem 0;
+
+                    &:nth-child(-n + 3)::after {
+                        content: "*";
+                        color: red;
+                    }
+                }
+
+                input,
+                textarea {
+                    padding: 0.5rem;
+                    font-size: 0.9rem;
+                    font-family: $text;
+                    border: none;
+                    box-shadow: 0 0 0 1px $text-light;
+                    border-radius: 0.2rem;
+                    outline: none;
+                    color: $text-dark;
+
+                    &:focus {
+                        box-shadow: 0 0 0 1px $secondary;
+                    }
+
+                    &::placeholder {
+                        font-size: 0.9rem;
+                    }
+                }
+
+                textarea {
+                    resize: vertical;
+                }
+            }
+        }
+
+        &--submit {
+            background-color: $purple;
+            color: $text-light;
+            border-radius: 0.3rem;
+            cursor: pointer;
+
+            &:hover {
+                transition: 150ms;
+                background-color: $hover;
+            }
+        }
+    }
+}

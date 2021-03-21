@@ -1,0 +1,18 @@
+@import "../../../global/css/variable.scss";
+
+.profile {
+    height: 100%;
+    padding: 0 1rem;
+    &--info-container {
+        flex-wrap: wrap;
+        margin: 1rem 0;
+    }
+    .label {
+        font-family: $large-text;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+    &--info {
+        font-family: $text;
+    }
+}

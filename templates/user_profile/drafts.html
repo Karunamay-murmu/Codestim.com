@@ -1,0 +1,49 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Draft</title>
+<script type="module" defer src="{% static 'js/modal.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/itemList.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+<h1 class="page-title">Drafts</h1>
+{% if drafts %}
+{% for draft in drafts %}
+<div class="card">
+    <div class="card__text">
+        <h3 class="card__text--title">{{draft.title}}</h3>
+        <p class="card__text--meta">Category: <span>{{draft.category}}</span> </p>
+        <p class="card__text--meta">Tags:
+            {% if draft.tags %}
+            <span>{{draft.tags}}</span>
+            {% else %}
+            <span></span>
+            {% endif %}
+        </p>
+
+    </div>
+    <div class="card__btn">
+        <a class="link card__btn--edit" href="{% url 'blog:edit-or-publish-draft' id=draft.postId %}">Edit</a>
+        <button class="card__btn--delete delete" type="text" name="delete" data-extra="{{draft.title}}"
+            value="{{draft.postId}}">Delete</button>
+    </div>
+</div>
+{% endfor %}
+<div class="modal-container" id="modal-container">
+    {% include 'modalForm.html' with type="draft" %}
+</div>
+{% else %}
+<div class="no-content">
+    <div class="wrapper">
+        <p class="info">No Drafts</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

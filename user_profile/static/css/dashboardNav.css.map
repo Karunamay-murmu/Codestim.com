@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "dashboardNav.scss",
+        "../../../global/css/variable.scss"
+    ],
+    "names": [],
+    "file": "dashboardNav.css"
+}

@@ -1,0 +1,38 @@
+@import "../../../global/css/variable.scss";
+
+.no-result-wrapper {
+    .no-result {
+        &--text {
+            font-family: $text;
+            font-size: 1.5rem;
+            word-wrap: break-word;
+        }
+
+        &--query {
+            font-family: $heading;
+            font-weight: $bold;
+            font-size: 2rem;
+        }
+    }
+
+    .search-bar {
+        margin: 2rem 0;
+        padding: 1rem 0 1rem 1rem;
+        border-left: 3px solid $primary;
+        border-radius: 0.2rem;
+
+        &--input {
+            max-width: 550px;
+            border-radius: 0.3rem;
+            border: 1.8px solid $primary;
+        }
+
+        &--btn {
+            margin: 1rem 0;
+            width: 80px;
+            background-color: $purple;
+            color: $text-light;
+            border-radius: 0.3rem;
+        }
+    }
+}

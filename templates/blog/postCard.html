@@ -1,0 +1,22 @@
+<div class="post-card flex flex-column">
+    {% if post.featured_image %}
+    <div class="post-card--thumbnail">
+        <img class="post-card--image" src="{{post.featured_image.url}}" alt="thumbnail">
+    </div>
+    {% else %}
+    <div class="post-card--thumbnail">
+        <svg class="post-card--svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+                d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z" />
+        </svg>
+    </div>
+    {% endif %}
+    <div class="post-card__details flex-column flex">
+        <h3 class="post-card--title"><a href="{% url 'blog:post_detail' slug=post.slug %}"></a>
+            {{post.title|truncatechars:40}}</h3>
+        <div class="post-card__btn">
+            <a class="post-card__btn--read-more" href="{% url 'blog:post_detail' slug=post.slug %}">Learn
+                More</a>
+        </div>
+    </div>
+</div>

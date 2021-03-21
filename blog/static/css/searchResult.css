@@ -1,0 +1,148 @@
+.search-result {
+  padding: 0.5rem;
+}
+
+.search-result .page-title {
+  font-family: "Catamaran", sans-serif;
+  color: #41444b;
+  line-height: 1;
+}
+
+.search-result .post-list {
+  max-width: 750px;
+  margin: 1rem 0;
+}
+
+.search-result .post-list .post-wrapper {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.search-result .post-list .post-wrapper .post__thumbnail {
+  width: 100%;
+  grid-area: thumbnail;
+}
+
+.search-result .post-list .post-wrapper .post__thumbnail--image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.2rem;
+}
+
+.search-result .post-list .post-wrapper .post__details {
+  grid-area: details;
+}
+
+.search-result .post-list .post-wrapper .post--title {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 500;
+  color: #41444b;
+}
+
+.search-result .post-list .post-wrapper .post--content * {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.search-result .post-list .post-wrapper .post--meta {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.8rem;
+  margin: 0.3rem 0;
+  color: #7579e7;
+  font-weight: 600;
+}
+
+.no-result-wrapper .no-result--text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+.no-result-wrapper .no-result--query {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.no-result-wrapper .search-bar {
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0 1rem;
+  border-left: 3px solid #0f715d;
+  border-radius: 0.2rem;
+}
+
+.no-result-wrapper .search-bar--input {
+  max-width: 550px;
+}
+
+.no-result-wrapper .search-bar--btn {
+  margin: 1rem 0;
+  width: 80px;
+  background-color: #7579e7;
+  color: #ebecf1;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.no-result-wrapper .search-bar--btn:hover {
+  background-color: #27907d;
+  -webkit-transition: 150ms;
+  transition: 150ms;
+}
+
+.pagination {
+  padding: 1rem 0 0 0;
+}
+
+.pagination * {
+  font-size: 0.85rem;
+  color: #ff7171;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+
+.pagination .step-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media only screen and (min-width: 425px) {
+  .post-wrapper {
+    -ms-grid-columns: 25% 1fr;
+        grid-template-columns: 25% 1fr;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "thumbnail details";
+  }
+  .post-wrapper .post__thumbnail--image {
+    width: 100%;
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .post-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 220px auto;
+        grid-template-rows: 220px auto;
+        grid-template-areas: "thumbnail" "details";
+  }
+  .post-wrapper .post__thumbnail--image {
+    width: 100%;
+    height: 100%;
+  }
+  .post-wrapper .post__details {
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid rgba(82, 87, 93, 0.5);
+  }
+}
+/*# sourceMappingURL=searchResult.css.map */

@@ -1,0 +1,111 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Editor</title>
+<link rel="stylesheet" href="{% static 'css/editor.css' %}">
+<script defer src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+{% endblock %}
+
+{% block dashboard_right_block %}
+{% if user.isAuthor is False %}
+<div class="">
+    <p>Please complete your profile before write any
+        post</p>
+    <a class="default-link" href="{% url 'dashboard:editProfile' user=user.username id=user.userId %}">Edit</a>
+</div>
+{% else %}
+<form method="POST" class="editor" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {% if writePost%}
+    <h1 class="editor__label">Add New Post</h1>
+    {% else %}
+    <h1 class="editor__label">Edit Post</h1>
+    {% endif %}
+
+    <div class="editor__fields">
+        <div class="editor__fields__input title">
+            {{form.title}}
+            {% if form.errors %}
+            {{form.errors.title}}
+            {% endif %}
+        </div>
+        <div class="editor__fields__input--textarea body">
+            {{form.body}}
+            {% if form.errors %}
+            {{form.errors.body}}
+            {% endif %}
+        </div>
+        <div class="editor__fields__input tags">
+            {{form.tags}}
+            {% if form.errors %}
+            {{form.errors.tags}}
+            {% endif %}
+        </div>
+        <div class="editor__fields__input--select category">
+            {{form.category}}
+            {% if form.errors %}
+            {{form.errors.category}}
+            {% endif %}
+        </div>
+        <div class="editor__fields__input--image">
+            <p class="editor__fields__input--label">Featured Image</p>
+            {{form.featured_image}}
+            {% if form.errors %}
+            {{form.errors.featured_image}}
+            {% endif %}
+        </div>
+        <div class="editor__meta-fields">
+            <h2 class="editor__label">Post Meta Data <span>(Optional)</span> </h2>
+            <div class="editor__fields__input--meta-title">
+                <p class="editor__fields__input--label">Title <span class="message-info">(Max 60 characters
+                        allowed)</span></p>
+                {{form.meta_title}}
+                {% if form.errors %}
+                {{form.error}}
+                {% endif %}
+            </div>
+            <div class="editor__fields__input--slug">
+                <p class="editor__fields__input--label">Permalink <span class="message-info">(Max 75 characters
+                        allowed)</span></p>
+                {{form.slug}}
+                {% if form.errors %}
+                {{form.errors.slug}}
+                {% endif %}
+            </div>
+            <div class="editor__fields__input--meta-desription">
+                <p class="editor__fields__input--label">Description <span class="message-info">(Max 160
+                        characters
+                        allowed)</span></p>
+                {{form.meta_description}}
+                {% if form.errors %}
+                {{form.errors.meta_description}}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if writePost %}
+    <!-- Write post -->
+    <div class="editor__btn">
+        <button type="submit" class="btn editor__btn--publish" name="create" value="create">Publish</button>
+        <button type="submit" class="btn editor__btn--draft" name="save" value="save">Save Draft</button>
+    </div>
+    {% elif editDraft %}
+    <!-- Draft update or publish -->
+    <div class="editor__btn">
+        <button type="submit" class="btn editor__btn--publish" name="create" value="create">Publish</button>
+        <button type="submit" class="btn editor__btn--draft" name="update-draft" value="update-draft">Update
+            Draft</button>
+    </div>
+    {% else %}
+    <!-- Post update -->
+    <div class="editor__btn">
+        <button type="submit" class="btn editor__btn--publish" name="update" value="update">Update</button>
+        <button type="submit" class="btn editor__btn--publish" name="switch-draft" value="switch-draft">Switch
+            Draft</button>
+    </div>
+    {% endif %}
+</form>
+{% endif %}
+{% endblock %}

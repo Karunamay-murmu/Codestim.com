@@ -1,0 +1,193 @@
+@import "./variable.scss";
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#body-content {
+    height: 75vh;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    * {
+        font-family: $large-text;
+
+    }
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.17rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.83rem;
+}
+
+h6 {
+    font-size: 0.67rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.center-align {
+    align-items: center;
+}
+
+.list {
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.default-link {
+    text-decoration: none;
+    color: $link;
+    font-size: 0.9rem;
+    font-weight: $semi-bold;
+    display: inline;
+}
+
+.container {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.btn {
+    padding: 0.7rem;
+    border: none;
+    outline: none;
+}
+
+.error {
+    font-size: 0.8rem;
+    color: $error;
+    background-color: #f2dede;
+}
+
+.info {
+    font-size: 0.8rem;
+    color: $info;
+    background-color: #d9edf7;
+}
+
+.success {
+    font-size: 0.8rem;
+    color: $success;
+    background-color: #dff0d8;
+}
+
+.errorlist {
+    color: $error;
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0 0 0;
+}
+
+.notification-container {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+    border-radius: 0.2rem;
+    transition: 300ms;
+    z-index: 1;
+}
+
+.close-alert-icon {
+    width: 0.9rem;
+    fill: $secondary;
+}
+
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+
+    #spinner {
+        margin: auto;
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        border: 0.45rem solid transparent;
+        border-top-color: $primary;
+        border-bottom-color: $primary;
+        border-radius: 50%;
+        animation: spinner 0.7s linear infinite;
+
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.removeloader {
+    animation: removeloader .5s forwards;
+}
+
+@keyframes removeloader {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

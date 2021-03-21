@@ -1,0 +1,60 @@
+.form {
+  padding: 1rem;
+  max-width: 550px;
+}
+
+.form__name {
+  font-family: "Catamaran", sans-serif;
+  color: #41444b;
+}
+
+.form__fieldwrapper--label {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 1rem 0 0.5rem;
+  color: #41444b;
+}
+
+.form__fieldwrapper input {
+  padding: 0.5rem;
+  outline: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  border-radius: 0.1rem;
+  border: none;
+  -webkit-box-shadow: 0 0 1px 1px #52575d;
+          box-shadow: 0 0 1px 1px #52575d;
+}
+
+.form__fieldwrapper input:focus {
+  border: none;
+  -webkit-box-shadow: 0 0 1.8px 1.5px #ff7171;
+          box-shadow: 0 0 1.8px 1.5px #ff7171;
+}
+
+.form__fieldwrapper textarea {
+  padding: 0.5rem;
+  outline: none;
+  resize: vertical;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  border: none;
+  -webkit-box-shadow: 0 0 1px 1px #52575d;
+          box-shadow: 0 0 1px 1px #52575d;
+}
+
+.form__fieldwrapper textarea:focus {
+  border: none;
+  -webkit-box-shadow: 0 0 1px 1px #ff7171;
+          box-shadow: 0 0 1px 1px #ff7171;
+}
+
+.form__btn {
+  margin: 1rem 0;
+  background-color: #7579e7 !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.2rem;
+  color: #ebecf1;
+  cursor: pointer;
+}
+/*# sourceMappingURL=contactForm.css.map */

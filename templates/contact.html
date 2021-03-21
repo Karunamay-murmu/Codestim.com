@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_block %}
+<link rel="stylesheet" href="{% static 'css/contactForm.css' %}">
+<script defer src="{% static 'js/closeAlert.js' %}"></script>
+{% if request.path == '/contact/' %}
+<title>Contact Us</title>
+{% else %}
+<title>Report</title>
+{% endif %}
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block body_block %}
+<div class="formwrapper">
+    <form method="POST" class="form">
+        {% if request.path == '/contact/' %}
+            <h1 class="form__name">Contact Us</h1>
+        {% else %}
+            <h1 class="form__name">Report an issue</h1>
+        {% endif %}
+        {% csrf_token %}
+            {% for field in form %}
+                <div class='form__fieldwrapper flex flex-column'>
+                    <label class="form__fieldwrapper--label" for="{{field.id_for_label}}">{{field.label}}</label>
+                    {{field}}
+                    {{field.errors}}
+                </div>
+            {% endfor %}
+        <button class="form__btn btn" type="submit" name="send">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

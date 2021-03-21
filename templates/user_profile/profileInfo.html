@@ -1,0 +1,47 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Profile</title>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+<div class="profile">
+    <h1 class="page-title">Profile</h1>
+    <div class="flex flex-row profile--info-container">
+        <p class="label">Username:</p>
+        <p class="profile--info">{{user}}</p>
+    </div>
+    <div class="flex flex-row profile--info-container">
+        <p class="label">Name:</p>
+        <p class="profile--info">{{user.first_name}} {{user.last_name}}</p>
+    </div>
+    <div class="flex flex-row profile--info-container">
+        <p class="label">Email Address:</p>
+        <p class="profile--info">{{user.email}}</p>
+    </div>
+    <div class="flex flex-row profile--info-container">
+        <p class="label">Bio:</p>
+        <p class="profile--info">{{user.bio}}</p>
+    </div>
+    <div class="flex flex-row profile--info-container">
+        <p class="label">Programing Lnguages:</p>
+        {% if user.languages %}
+        <p class="profile--info">{{user.languages}}</p>
+        {% else %}
+        <p>---</p>
+        {% endif %}
+    </div>
+    <div class="profile--info-container">
+        <a class="default-link profile--edit"
+            href="{% url 'dashboard:editProfile' user=user.username id=user.userId %}">Edit
+            Profile</a>
+
+    </div>
+</div>
+{% endblock %}

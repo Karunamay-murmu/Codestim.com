@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACL,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,MAAM;CAalB;;AAZI,AAAD,wBAAiB,CAAC;EACd,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,MAAM;CACjB;;AANL,AAOI,QAPI,CAOJ,MAAM,CAAC;EACH,WAAW,ECsBN,WAAW,EAAE,UAAU;EDrB5B,SAAS,EAAE,MAAM;EACjB,YAAY,EAAE,IAAI;CACrB;;AACA,AAAD,cAAO,CAAC;EACJ,WAAW,ECmBZ,aAAa,EAAE,UAAU;CDlB3B",
+    "sources": [
+        "profile.scss",
+        "../../../global/css/variable.scss"
+    ],
+    "names": [],
+    "file": "profile.css"
+}

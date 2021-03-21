@@ -1,0 +1,27 @@
+<form method="POST" action="" class="modal">
+    {% csrf_token %}
+    <div class="modal__header flex center-align">
+        <svg class="fas fa-trash-alt modal__header--delete-icon" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512">
+            <path
+                d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" />
+        </svg>
+        {% if type == "post" %}
+        <h3 class="modal__header--text">Delete this post</h3>
+        {% elif type == "draft" %}
+        <h3 class="modal__header--text">Discard this draft</h3>
+        {% endif %}
+        <svg class="fas fa-times modal__header--close-icon close" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 352 512">
+            <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+        </svg>
+    </div>
+    <p class="modal__body">Are you sure you want to delete the {{type}} with Title: <br> <span
+            id="spanPostTitle"></span>
+    </p>
+    <div class="modal__btn">
+        <button class="btn modal__btn--confirm" id="confirm-delete" type="submit" name="id"
+            value={{post.postId}}>Delete</button>
+    </div>
+</form>

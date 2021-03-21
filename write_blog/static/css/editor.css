@@ -1,0 +1,197 @@
+.tox-tinymce {
+  border-radius: .3rem !important;
+  border: 1px solid rgba(82, 87, 93, 0.5) !important;
+}
+
+.editor {
+  padding: 1rem 1rem 5rem 1rem;
+  border-radius: 0.3rem;
+  max-width: 1024px;
+}
+
+.editor__label {
+  font-family: "Catamaran", sans-serif;
+  color: #52575d;
+}
+
+.editor__fields {
+  padding: 1.5rem 0 0 0;
+}
+
+.editor__fields .title input {
+  font-size: 2rem !important;
+}
+
+.editor__fields .title input::-webkit-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+}
+
+.editor__fields .title input:-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+}
+
+.editor__fields .title input::-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+}
+
+.editor__fields .title input::placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2rem;
+}
+
+.editor__fields__input {
+  padding: 0 0 1rem 0;
+}
+
+.editor__fields__input--label {
+  font-size: 1rem;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.editor__fields__input--textarea {
+  padding-bottom: 1rem;
+}
+
+.editor__fields__input--textarea textarea {
+  display: none;
+}
+
+.editor__fields__input input {
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(82, 87, 93, 0.5);
+  outline: none;
+  padding: 0.5rem;
+}
+
+.editor__fields__input input:focus {
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+          box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+}
+
+.editor__fields__input input::-webkit-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__fields__input input:-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__fields__input input::-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__fields__input input::placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__fields__input--select select {
+  font-size: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  width: 200px;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  outline: none;
+  border: 1px solid rgba(82, 87, 93, 0.5);
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 320 512"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" style="fill:%232b3137" /></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px bottom 7px;
+}
+
+.editor__fields__input--select select:focus {
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+          box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+}
+
+.editor__fields__input--image input {
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.editor__meta-fields {
+  max-width: 550px;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+}
+
+.editor__meta-fields input,
+.editor__meta-fields textarea {
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(82, 87, 93, 0.5);
+  outline: none;
+  padding: 0.5rem;
+}
+
+.editor__meta-fields input:focus,
+.editor__meta-fields textarea:focus {
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+          box-shadow: 0px 0px 2px 2px rgba(82, 87, 93, 0.2);
+}
+
+.editor__meta-fields input::-webkit-input-placeholder,
+.editor__meta-fields textarea::-webkit-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__meta-fields input:-ms-input-placeholder,
+.editor__meta-fields textarea:-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__meta-fields input::-ms-input-placeholder,
+.editor__meta-fields textarea::-ms-input-placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__meta-fields input::placeholder,
+.editor__meta-fields textarea::placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.editor__meta-fields textarea {
+  max-width: 100%;
+}
+
+.editor__btn {
+  margin-top: 2rem;
+}
+
+.editor__btn--publish, .editor__btn--draft {
+  background-color: #7579e7;
+  border-radius: 0.3rem;
+  color: #ebecf1;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding-top: 0.8rem;
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+.editor__btn--publish:hover, .editor__btn--draft:hover {
+  background-color: #27907d;
+}
+
+.editor__btn--publish:active, .editor__btn--draft:active {
+  -webkit-box-shadow: 0px 0px 2px 2px #52575d;
+          box-shadow: 0px 0px 2px 2px #52575d;
+}
+/*# sourceMappingURL=editor.css.map */

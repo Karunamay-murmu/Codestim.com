@@ -1,0 +1,40 @@
+<div class="footer__content container">
+    <section class="footer__items--cta section cta">
+        <div class="section__cta">
+            <h3 class="section--title">Subscribe our newsletter for the latest update</h3>
+            <div class="section--body--cta">
+                <form class="section--email-input flex" action="{% url 'blog:subscribe' %}?next={{request.path}}"
+                    method="POST">
+                    {% csrf_token %}
+                    {% for field in email_subscribe_form %}
+                    {{field}}
+                    {{field.errors}}
+                    {% endfor %}
+                    <button class="btn sub-btn" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="footer__items--links section links">
+        <div class="section__links ">
+            <div class="section--body">
+                <ul class="section--link-list flex">
+                    <li class="list"><a class="default-link page-link" href="{% url 'blog:about' %}">About Us</a></li>
+                    <li class="list"><a class="default-link page-link" href="{% url 'blog:contact' %}">Contact Us</a>
+                    </li>
+                    <li class="list"><a class="default-link page-link" href="{% url 'blog:privacy_policy' %}">Privacy
+                            Policy</a></li>
+                    <li class="list"><a class="default-link page-link" href="{% url 'blog:terms' %}">Terms of
+                            Service</a></li>
+                    <li class="list"><a class="default-link page-link" href="{% url 'blog:report' %}">Report An
+                            Issue</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="footer__bar bar">
+    <div class="footer__bar--text container">
+        Copyright &#169 2020 <a class="default-link" href="{% url 'blog:home' %}">Codestim.com</a> All right reserved
+    </div>
+</section>

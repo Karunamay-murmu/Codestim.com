@@ -1,0 +1,53 @@
+@import "../../../global/css/variable.scss";
+
+.form {
+    padding: 1rem;
+    max-width: 550px;
+    &__name {
+        font-family: $large-text;
+        color: $text-dark;
+    }
+    &__fieldwrapper {
+        &--label {
+            font-family: $text;
+            margin: 1rem 0 0.5rem;
+            color: $text-dark;
+        }
+        input {
+            padding: 0.5rem;
+            outline: none;
+            font-family: $text;
+            font-size: 0.9rem;
+            border-radius: 0.1rem;
+            border: none;
+            box-shadow: 0 0 1px 1px $secondary;
+            &:focus {
+                border: none;
+                box-shadow: 0 0 1.8px 1.5px $border;
+            }
+        }
+        textarea {
+            padding: 0.5rem;
+            outline: none;
+            resize: vertical;
+            font-family: $text;
+            font-size: 0.9rem;
+            border-radius: 0.2rem;
+            border: none;
+            box-shadow: 0 0 1px 1px $secondary;
+
+            &:focus {
+                border: none;
+                box-shadow: 0 0 1px 1px $border;
+            }
+        }
+    }
+    &__btn {
+        margin: 1rem 0;
+        background-color: $purple !important;
+        padding: 0.8rem 1.5rem;
+        border-radius: 0.2rem;
+        color: $text-light;
+        cursor: pointer;
+    }
+}

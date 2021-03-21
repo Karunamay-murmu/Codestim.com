@@ -1,0 +1,58 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+<title>Post</title>
+<link rel="stylesheet" href="{% static 'css/itemList.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<script type="module" defer src="{% static 'js/modal.js' %}"></script>
+{% endblock %}
+
+{% block alert_block %}
+{% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+<h1 class="page-title">Posts</h1>
+{% if posts %}
+{% for post in posts %}
+<div class="card">
+    <div class="card__text">
+        <h3 class="card__text--title">{{post.title}}</h3>
+        <p class="card__text--meta">Category: <span>{{post.category}}</span> </p>
+        <p class="card__text--meta">Tags:
+            {% if post.tags %}
+            <span>{{post.tags}}</span>
+            {% else %}
+            <span></span>
+            {% endif %}
+        </p>
+    </div>
+    <div class="card__btn">
+        <a class="link card__btn--view" href="{% url 'blog:post_detail' slug=post.slug %}">View</a>
+        <a class="link card__btn--edit" href="{% url 'blog:edit-post' slug=post.slug id=post.postId %}">Edit</a>
+        <button class="card__btn--delete delete" type="text" name="delete" data-extra="{{post.title}}"
+            value="{{post.postId}}">Delete</button>
+    </div>
+</div>
+{% endfor %}
+<div class="modal-container" id="modal-container">
+    {% include 'modalForm.html' with type="post" %}
+</div>
+{% else %}
+<div class="no-content">
+    <div class="wrapper">
+        <p class="info">No post</p>
+        <a href="{% url 'dashboard:write_blog:write_post' user=user.username id=user.userId %}">
+            <svg class="write-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z" />
+            </svg>
+        </a>
+        <p class="info">Click <a style="font-size: 1.2rem;" class="default-link"
+                href="{% url 'dashboard:write_blog:write_post' user=user.username id=user.userId %}">here</a> to create
+            new post. Or click the pencil icon.</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

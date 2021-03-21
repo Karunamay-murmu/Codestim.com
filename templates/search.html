@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_block %}
+<title>Search result</title>
+<link rel="stylesheet" href="{% static 'css/searchResult.css' %}">
+{% endblock %}
+
+{% block body_block %}
+<div class="search-result">
+    <h1 class="page-title">{{posts|length}} matching search result{{posts|pluralize}} found</h1>
+    {% if posts %}
+    <div class="post-list">
+        {% for post in posts %}
+        <div class="post-wrapper">
+            <div class="post__thumbnail">
+                {% if post.featured_image %}
+                <img class="post__thumbnail--image" src="{{ post.featured_image.url }}" alt="image">
+                {% else %}
+                <img class="post__thumbnail--image" src="{% static 'media/no_image.png' %}" alt="">
+                {% endif %}
+            </div>
+            <div class="post__details">
+                <h3 style="line-height: 1.2rem;">
+                    <a class="post--title link" href="{% url 'blog:post_detail' slug=post.slug %}">{{post.title}}</a>
+                </h3>
+                <p class="post--meta">{{post.publish_date}} | {{post.category}}</p>
+                <article class="post--content">
+                    {{post.body|safe|truncatewords_html:20}}
+                </article>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% else %}
+    <div class="no-result-wrapper">
+        <p class="no-result--text">Sorry, we couldn't find any content for "<span
+                class="no-result--query">{{query}}</span>".
+            <br>
+            Please try with different keyword.
+        </p>
+        <form action="{% url 'blog:search' %}" class="search-bar flex flex-column" method="GET">
+            <input class="search-bar--input" required type="search" name="query" placeholder="Search posts" id="search">
+            <button class="btn search-bar--btn  " type="submit">Search</button>
+        </form>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}

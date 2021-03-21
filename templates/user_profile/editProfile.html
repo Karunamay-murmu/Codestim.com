@@ -1,0 +1,61 @@
+{% extends 'user_profile/dashboard.html' %}
+{% load static %}
+
+{% block dashboard_right_block_head %}
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'css/editProfile.css' %}">
+{% endblock %}
+
+{% block alert_block %}
+    {% include 'message.html' with message=message %}
+{% endblock %}
+
+{% block dashboard_right_block %}
+    <section class="profile-edit">
+        <form method="POST" class="form">
+            <h1 class="form--name">Edit Profile</h1>
+
+            {% csrf_token %}
+            <div class="form--body">
+                <div class="flex flex-column input-box">
+                    <label class="input-box--label" for="id_first_name">First Name</label>
+                    {{form.first_name}}
+                    <div class="input--error">
+                        {% if form.errors %}
+                        {{form.errors.first_name}}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="flex flex-column input-box">
+                    <label class="input-box--label" for="id_last_name">Last Name</label>
+                    {{form.last_name}}
+                    <div class="input--error">
+                        {% if form.errors %}
+                        {{form.errors.last_name}}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="flex flex-column input-box">
+                    <label class="input-box--label" for="id_description">Bio</label>
+                    {{form.bio}}
+                    <div class="input--error">
+                        {% if form.errors %}
+                        {{form.errors.description}}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="flex flex-column input-box">
+                    <label class="input-box--label" for="id_main_languages">Programing languages</label>
+                    {{form.languages}}
+                    <div class="input--error error">
+                        {% if form.errors %}
+                        {{form.errors.main_languages}}
+                        {% endif %}
+                    </div>
+                </div>
+                <button class="form--submit btn" type="submit">Save</button>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,177 @@
+@import "../../../global/css/variable.scss";
+
+#content {
+    padding: 1.5rem 0.5rem;
+}
+
+.wrapper {
+    max-width: 450px;
+    margin: auto;
+    border-radius: 0.2rem;
+    box-shadow: 0px 0px 1px .2px $primary;
+    background-color: #fff;
+    padding: 1.5rem;
+
+    .email-signup {
+        text-align: center;
+        margin: 0 0 1rem;
+
+        &--message {
+            font-size: 0.9rem;
+            font-weight: $extra-bold;
+            color: rgba($secondary, 1);
+        }
+    }
+
+    .auth-form {
+        flex-basis: 0;
+        flex-grow: 1;
+        border-bottom-left-radius: 0.8rem;
+        border-bottom-right-radius: 0.8rem;
+
+        &--message {
+            font-size: 0.8rem;
+            font-weight: $bold;
+            margin: 0.5rem 0;
+            color: rgba($primary, 1);
+        }
+
+        &__name {
+            color: $primary;
+            font-family: $large-text;
+            text-align: center;
+        }
+
+        &__input {
+            position: relative;
+            overflow: hidden;
+            margin: 1rem 0 0;
+            display: flex;
+            flex-direction: column;
+
+            &--label {
+                font-family: $text;
+                padding: 0 0 0.2rem 0;
+                font-weight: $semi-bold;
+                color: $primary;
+            }
+
+            &--fields {
+                input {
+                    width: 100%;
+                    padding: 1rem;
+                    border-radius: 0.3rem;
+                    border: none;
+                    background-color: rgba($white-bg, 0.5);
+                    font-size: 1rem;
+                    color: rgba($text-dark, 0.8);
+                    outline: none;
+                    flex-grow: 1;
+                    padding-right: 1.5rem;
+
+                    &::placeholder {
+                        color: rgba($secondary, 0.5);
+                        font-size: 0.9rem;
+                        font-weight: $bold;
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            padding-top: 1.5rem;
+
+            &--signup,
+            &--login {
+                margin-top: 1rem;
+                color: #206a5d;
+            }
+
+            &--submit {
+                font-weight: bold;
+                width: 150px;
+                border-radius: 0.3rem;
+                color: #ebecf1;
+                background-color: $link;
+                cursor: pointer;
+                transition: 200ms;
+
+                &:hover {
+                    box-shadow: 0 5px 5px -5px $secondary;
+                    background-color: $hover;
+                    transition: 200ms;
+                }
+            }
+
+            &--reset {
+                margin-bottom: 0.3rem;
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .auth-options {
+        padding: 1rem;
+        background-color: #fff;
+        flex-basis: 0;
+        flex-grow: 1;
+        justify-content: space-between;
+        align-items: center;
+
+        &--links {
+            a {
+                padding: 0.5rem;
+                transition: 300ms;
+
+                &:hover {
+                    color: $hover;
+                }
+            }
+        }
+
+        .Oauth-option {
+            margin-top: 1rem;
+            color: $secondary;
+            font-weight: $semi-bold;
+        }
+
+        &__btn {
+            width: 100%;
+            justify-content: center;
+
+            &--google,
+            &--facebook,
+            &--github {
+                margin: 0.5rem 0.5rem 0;
+                padding: 1rem;
+                background-color: transparent;
+                box-shadow: 0 1px 3px 0px $secondary;
+                border-radius: 50rem;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: 200ms;
+
+                &:hover {
+                    box-shadow: 0 1px 5px 0px $secondary;
+                }
+
+                svg {
+                    width: 1.5rem;
+                    fill: $secondary;
+                }
+
+                .btn-label {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .wrapper {
+        padding: 2rem 1rem;
+    }
+}

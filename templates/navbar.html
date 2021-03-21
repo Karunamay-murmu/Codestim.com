@@ -1,0 +1,78 @@
+{% load static %}
+<nav class='nav-bar flex flex-row center-align container'>
+	<svg class="nav-bar--burger" id="burger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+		<path
+			d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+	</svg>
+	<svg style="display: none;" class="nav-bar--cross" id="cross" xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 352 512">
+		<path
+			d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+	</svg>
+	<a href="{% url 'blog:home' %}" class="nav-bar--logo-link">
+		<img src="{% static 'media/logo.svg' %}" alt="codestim" id="logo" width="9rem" height="50px">
+	</a>
+	<ul class="nav-bar__menu" id='navigation-menu'>
+		<li class="list"><a class='nav-bar__menu__item link' href="/category/Javascript">Javascript</a></li>
+		<li class="list"><a class='nav-bar__menu__item link' href="/category/Python">Python</a>
+		</li>
+		<li class="list"><a class='nav-bar__menu__item link' href="/category/Web-development">Web</a></li>
+		<li class="list"><a class='nav-bar__menu__item link' href="/category/Programming">Programming</a>
+		</li>
+
+		<form action="{% url 'blog:search' %}" class="nav-bar__menu--search-bar flex flex-row" method="GET">
+			<input class="search-bar--input" required type="search" name="query" placeholder="Search posts..."
+				id="search">
+			<button class="search-bar__btn" title="search" aria-label="search" type="submit">
+				<svg class="search-bar__btn--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+					<path
+						d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
+				</svg>
+			</button>
+		</form>
+	</ul>
+	<div class="nav-bar__auth">
+		<div class="auth flex flex-row center-align">
+			{% if user.is_authenticated %}
+			<div id='profileButton' class="auth__profile flex flex-row center-align link">
+				<svg class="auth__profile--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+					<path
+						d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" />
+				</svg>
+				<span class="auth__profile--username">{{user}}</span>
+			</div>
+			<div class='auth__options'>
+				<ul class="auth__options__list">
+					<li class="auth__options__list--item list">
+						<a class="default-link" href="{% url 'dashboard:profileInfo' user=user id=user.userId %}">
+							Profile</a>
+					</li>
+					<li class="auth__options__list--item list">
+						<a class="default-link" href="{% url 'dashboard:posts' user=user id=user.userId %}">
+							Posts
+						</a>
+					</li>
+					<li class="auth__options__list--item list">
+						<a class="default-link" href="{% url 'dashboard:drafts' user=user id=user.userId %}">
+							Drafts
+						</a>
+					</li>
+					<li class="auth__options__list--item list"><a class="default-link"
+							href="{% url 'dashboard:comments' user=user id=user.userId %}">Comments</a></li>
+					<li class="auth__options__list--item list"><a class="default-link"
+							href="{% url 'dashboard:write_blog:write_post' user=user id=user.userId %}">Write Post</a>
+					</li>
+					<li class="auth__options__list--item list"><a class="default-link"
+							href="{% url 'registration:log_out' %}">Log Out</a></li>
+
+				</ul>
+			</div>
+			{% else %}
+			<div class="flex flex-row">
+				<a class="auth__btn link btn" href="{% url 'registration:log_in' %}">Write Post</a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+</nav>

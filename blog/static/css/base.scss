@@ -1,0 +1,443 @@
+@import "../../../global/css/variable.scss";
+
+#logo {
+    width: 9rem;
+    height: 50px;
+}
+
+
+
+#header {
+    box-shadow: 0 .5px 5px rgba($secondary, .5);
+
+    .active {
+        border: none;
+        border-radius: 0.3rem;
+        background-color: $hover;
+        color: $text-light;
+    }
+
+    .nav-bar {
+        position: relative;
+        width: 100%;
+        height: 4.5rem;
+        padding: 0 1rem;
+
+        &--logo-link {
+            height: 50px;
+        }
+
+        &--burger,
+        &--cross {
+            width: 1.5rem;
+            fill: $primary;
+        }
+
+        &__auth {
+            justify-self: flex-end;
+            margin-left: auto;
+
+            .auth {
+                &__profile {
+                    padding: 0.5rem;
+                    border-radius: 0.2rem;
+                    transition: 300ms;
+                    cursor: pointer;
+                    box-shadow: 0 0 1px .2px $primary;
+
+                    &--username {
+                        color: $primary;
+                        font-size: 0.9rem;
+                        padding: 0 0 0 0.5rem;
+                        font-weight: $extra-bold;
+                    }
+
+                    &--icon {
+                        width: 1.5rem;
+                        fill: $primary;
+                    }
+                }
+
+                &__options {
+                    position: absolute;
+                    top: 70px;
+                    right: 1rem;
+                    width: 200px;
+                    border: none;
+                    display: none;
+                    background-color: #fff;
+                    z-index: 10;
+
+                    &__list {
+                        box-shadow: 0 0 5px rgba($secondary, 0.5);
+                        border-radius: 0.5rem;
+
+                        &--item {
+                            .default-link {
+                                display: block;
+                                padding: 1rem 3rem 1rem 1rem;
+                                font-weight: $bold;
+                                color: $text-dark;
+
+                                &:hover {
+                                    color: $link;
+
+                                    &:nth-child(1) {
+                                        border-top-left-radius: 0.5rem;
+                                        border-top-right-radius: 0.5rem;
+                                    }
+                                }
+
+                                &:not(:nth-child(5)) {
+                                    border-bottom: 0.5px solid $white-bg;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__btn {
+                    width: 92px;
+                    text-align: center;
+                    font-size: 0.9rem;
+                    margin-left: 1rem;
+                    border-radius: 0.2rem;
+                    color: $primary;
+                    cursor: pointer;
+                    transition: 100ms;
+                    font-weight: $extra-bold;
+                    box-shadow: 0 0 1px .2px $primary;
+                }
+            }
+        }
+    }
+}
+
+.search-bar {
+    position: relative;
+
+    &--input {
+        padding: 0.7rem .1rem;
+        border: none;
+        box-shadow: 0 1.5px $primary;
+        outline: none;
+        float: left;
+        font-weight: $bold;
+        font-size: 1rem;
+        background: transparent;
+    }
+
+    &__btn {
+        float: left;
+        padding: 0.7rem 1rem;
+        background-color: transparent;
+        border: none;
+        box-shadow: 0 1.5px $primary;
+        outline: none;
+        cursor: pointer;
+
+        &--icon {
+            fill: $primary;
+            width: 1rem;
+        }
+    }
+}
+
+.showSideMenu {
+    transform: translateX(0%) !important;
+    transition: 150ms;
+}
+
+.hideSideMenu {
+    transform: translateX(-100%);
+    transform: 150ms;
+}
+
+.display {
+    display: initial !important;
+    transition: 250ms;
+}
+
+@media screen and (min-width: 978px) {
+    .nav-bar {
+        &__menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            margin: 0 1rem;
+
+            &__item {
+                color: $primary;
+                margin: 0.2rem;
+                padding: 0.5rem 0.5rem;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                transition: 300ms;
+                font-weight: $extra-bold;
+
+                &:hover {
+                    border: none;
+                    border-radius: 0.2rem;
+                    background-color: $hover;
+                    color: $text-light;
+                }
+            }
+
+            &--search-bar {
+                margin: 0 1rem;
+                flex-grow: 1;
+            }
+
+            .search-bar {
+                &--input {
+                    width: 70%;
+                }
+            }
+        }
+
+        &--burger {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 978px) {
+    .nav-bar {
+        &--burger {
+            display: initial;
+            margin-right: 1rem;
+        }
+
+        &--cross {
+            position: fixed;
+            top: 1rem;
+            left: 1.8rem;
+            z-index: 10;
+            fill: $text-light !important;
+
+        }
+
+        &__menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: $secondary;
+            width: 50%;
+            height: 100vh;
+            padding: 1rem;
+            transition: 150ms;
+            transform: translateX(-100%);
+            z-index: 5;
+
+            &__item {
+                color: $text-light;
+                margin: 0.2rem;
+                padding: 0.5rem 0.5rem;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                transition: 300ms;
+                font-weight: $extra-bold;
+            }
+        }
+
+        &--search-bar {
+            padding: 1rem 0.5rem;
+        }
+
+
+        .search-bar {
+            &--input {
+                width: 100%;
+                background: $white-bg !important;
+                padding: .5rem !important;
+                border-top-left-radius: .2rem;
+                border-bottom-left-radius: .2rem;
+            }
+
+            &__btn {
+                background-color: $white-bg !important;
+                border-top-right-radius: .2rem;
+                border-bottom-right-radius: .2rem;
+            }
+
+        }
+
+        .list {
+            margin: 1rem 0 2rem;
+        }
+
+        .list:nth-child(1) {
+            margin-top: 4rem;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav-bar {
+        &__menu {
+            width: 100%;
+            transition: 150ms;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .nav-bar {
+        &__auth {
+            .auth {
+                &__btn {
+                    &--logout {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#main {
+    min-height: 100%;
+    padding-bottom: 3rem;
+}
+
+.footer {
+    padding-top: 2rem;
+    border-top: 1px solid $white-bg;
+
+    &__content {
+        padding: 0.5rem;
+    }
+
+    .section {
+        &__cta {
+            max-width: 420px;
+        }
+
+        &--title {
+            color: $primary;
+            font-family: $large-text;
+        }
+
+        &--body {
+            margin-top: 1.5rem;
+            padding-right: 2rem;
+
+            * {
+                font-size: 0.9rem;
+                font-family: $text;
+            }
+
+            &--cta {
+                margin-top: 1rem;
+                font-family: $text;
+            }
+        }
+
+        &--description {
+            line-height: 1.5rem;
+        }
+
+        &--email-input {
+            .email-input {
+                width: 150%;
+                padding: 0 0.5rem;
+                margin-right: 0.3rem;
+                outline: none;
+                border-radius: 0.2rem;
+                border: 1px solid $secondary;
+                font-weight: $semi-bold;
+                font-size: 1rem;
+            }
+
+            .sub-btn {
+                background-color: $purple;
+                color: $text-light;
+                font-weight: bold;
+                border-radius: 0.2rem;
+                cursor: pointer;
+            }
+        }
+
+        &--link-list {
+            padding-left: 1rem;
+            flex-wrap: wrap;
+
+            li {
+                margin: 1rem 3rem 1rem 0;
+                padding: 0 0 0.8rem 0;
+                border-bottom: 1px solid $text-light;
+            }
+
+            li::before {
+                content: "\2022";
+                color: $secondary;
+                font-weight: bold;
+                display: inline-block;
+                width: 1rem;
+                margin-left: -1rem;
+            }
+
+            .page-link {
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+
+    &__bar {
+        background-color: $dark-bg;
+
+        &--text {
+            color: $text-light;
+            font-size: 0.9rem;
+            padding: 1.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .footer {
+        &__content {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: auto 250px 80px;
+            grid-template-areas:
+                "about about about ads ads ads"
+                "links links links ads ads ads"
+                "cta cta cta ads ads ads";
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        &__content {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: 100px auto auto auto;
+            grid-template-areas:
+                "cta"
+                "about"
+                "ads"
+                "links";
+        }
+
+        .section {
+            &--body {
+                padding: 0;
+            }
+        }
+
+        &__bar {
+            &--text {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        .section {
+            &--ads-area {
+                margin: auto;
+            }
+        }
+    }
+}

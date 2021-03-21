@@ -1,0 +1,15 @@
+<div class="comment-form">
+    {% if user.is_authenticated %}
+    <h2 class="comment-form--title">Leave a Reply</h2>
+    <form class='comment-form--body flex flex-column' method='POST'>
+        {% for field in form %}
+        {{field}}
+        {% endfor %}
+        {% csrf_token %}
+        <button type="submit" class="comment-form--reply">Post Comment</button>
+    </form>
+    {% else %}
+    <p class="login-message">Please <a class="default-link"
+            href="{% url 'registration:log_in' %}?next={{request.path}}">login</a> to post comment</p>
+    {% endif %}
+</div>

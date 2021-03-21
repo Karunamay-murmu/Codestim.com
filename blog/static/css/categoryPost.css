@@ -1,0 +1,21 @@
+.pagination {
+  padding: 1rem 0 0 0;
+  margin-top: auto;
+}
+
+.pagination * {
+  font-size: 0.85rem;
+  color: #ff7171;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+
+.pagination .step-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=categoryPost.css.map */
