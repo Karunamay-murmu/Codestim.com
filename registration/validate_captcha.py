@@ -6,7 +6,7 @@ def validate_captcha(request):
 
     recaptcha_api_url = 'https://www.google.com/recaptcha/api/siteverify'
     recaptcha_data = {
-        'secret': '6Lca6PAZAAAAAAMMzLDQFZBUxjEr3oyhanRDrds8',
+        'secret': 'recaptcha_secret_key',
         'response': recaptcha_client_key
     }
 
